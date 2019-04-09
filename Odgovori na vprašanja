@@ -1,1 +1,53 @@
 Nextion Editor: 
+
+d) Dodajte grafični kazalec (gauge) iz okna Toolbox na vaš Display. Ustrezno ga povečajte in
+pozicionirajte/centrirajte ter nastavite barvo in debelino kazalca (wid, pco). Po želji mu lahko nastavite
+prosojnost (sta  solid color/crop). Kako je Nextion poimenoval ta objekt (objname)? z0.
+
+g) V oknu Events za gumb b0 (objname), v zavihku Touch Press Event prepišemo spodnjo kodo
+
+Cube MX:
+
+b) V zavihku Pinout izbrišite (reset state) trenutne privzete postavite pinov - razen za LED diodi, ki imata
+vrednost PC9 (zelena LED) in PC8 (modra LED).
+
+c) Aktivirajte UART1 vmesnik tako, da bo imel naslednje nastavitve:
+a. Način: Asynchronus
+b. Hitrost: 9600 Bit/s
+c. Dolžina besede: 8 bitov (paritetni bit vštet, ki pa se ga NE upošteva)
+d. USART1 aktiviramo kot globalno prekinitev (NVIC nastavitve)
+e. Prejemanje podatkov - USART1_RX dodamo kot DMA, in sicer kot Circular način dolžine enega
+bajta direktno iz spomina (DMA nastavitve)
+f. Aktivirana pina PA10 (Rx) in PA9 (Tx) pravilno povežite z Nextionom! Kako?
+Utemeljite:
+Nextion Rx povežemo na STM-ov priključek PA9, ki smo ga določili kot TX. Nextionov Tx pa povežemo na PA10, ki je STM-ov RX.
+
+
+d) Aktivirajte ADC pretvorbo za vgrajeni potenciometer, ki se nahaja na pinu PC0.
+a. Kateri kanal morate izbrati? ADC_IN10.
+b. V nastavitvah določite 12-bitno resolucijo ter asinhrono časovno proženje.
+
+SW4:
+
+V zgornjih vrsticah smo aktivirali ADC pretvorbo – katera vrsta pretvorba je to? (single, continous ali časovno
+sprožena?) Odg. continous.
+
+ASCII:
+ASCII       Binarno     Hexadecilano    Desetiško
+  0         0110000         30            48
+  1         0110001         31            49
+  2         0110010         32            50  
+  3         0110011         33            51
+  4         0110100         34            52  
+  5         0110101         35            53
+  6         0110110         36            54
+  7         0110111         37            55
+  8         0111000         38            56  
+  9         0111001         39            57
+
+Nextion bo postavitev objekta - prikazovalnika (gauge) – spremenil takrat, ko bo dobil ustrezen niz kode; če
+se želi kazalec postaviti pokončno navzgor (torej na 90°), bo moral prejeti niz znakov: z0.val=090 . Kaj pa
+pomeni 3x zapis 0xff? _____________________________________________________________________.
+Kakšen ASCII znak prejme Nextion? _____ .
+
+
