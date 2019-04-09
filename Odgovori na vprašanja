@@ -47,7 +47,7 @@ ASCII       Binarno     Hexadecilano    Desetiško
 
 Nextion bo postavitev objekta - prikazovalnika (gauge) – spremenil takrat, ko bo dobil ustrezen niz kode; če
 se želi kazalec postaviti pokončno navzgor (torej na 90°), bo moral prejeti niz znakov: z0.val=090 . Kaj pa
-pomeni 3x zapis 0xff? _____________________________________________________________________.
-Kakšen ASCII znak prejme Nextion? _____ .
+pomeni 3x zapis 0xff? To pomeni, da nextion prejme 3x signal z desetiško vrednostjo 255 oziroma dvojiško 1111111.
+Kakšen ASCII znak prejme Nextion? pošlje  y s dvema pikama nad njem .
 
 
